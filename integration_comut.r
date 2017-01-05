@@ -7,10 +7,11 @@ library(RColorBrewer)
 
 
 # RNA
-file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/69_patients/transcriptome/new_integration.txt"
+# file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/69_patients/transcriptome/new_integration.txt"
+file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/82_patients/transcriptome/transcriptome_integration_summary.csv.comut"
 #dna
-DNA_file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/69_patients/genome/DNA_integration.csv.formated"
-
+# DNA_file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/69_patients/genome/DNA_integration.csv.formated"
+DNA_file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/integration/82_patients/genome/genome_integration_summary.csv.comut"
 df <- read.table(file,
                  header=TRUE,
                  sep="\t",
@@ -100,4 +101,4 @@ panel.grid.minor.y=element_blank(),
 panel.background=element_blank()
 ))
 print("lllllllllllllllllllll") 
-ggsave(mut,file="integration_Comutplot.png",width=10,height=8)
+#ggsave(mut,file="integration_Comutplot.png",width=10,height=8)

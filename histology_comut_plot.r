@@ -8,6 +8,7 @@ library(reshape2)
 ## also add in the history and other pathology subtypes
 
 #file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/variant_bwamem/new_run/comut_data.txt"
+#file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/variant_bwamem/82_patients/high_moderate_SNV_summary_with_normal_82_patients.filtered.somatic.txt.comut.bk"
 file <- "/projects/trans_scratch/validations/workspace/szong/Cervical/variant_bwamem/82_patients/high_moderate_SNV_summary_with_normal_82_patients.filtered.somatic.txt.comut"
 df <- read.table(file,
                  header=TRUE,
@@ -32,7 +33,8 @@ my.colors <- c("purple",
                "#CC79A7",
                "#E41A1C",
                "#377EB8",
-               "red")
+               "red",
+               "black")
 
 # my.colors <- c("purple",
 #                "yellow",
@@ -53,10 +55,12 @@ categories <-c("Adeno",
                "Negative",
                "Multiple",
                "NON_SYNONYMOUS_CODING",
-               "SPLICE_SITE_ACCEPTOR",
+               "SPLICE_ACCEPTOR_DONOR",
                "STOP_GAINED",
-               "integrated",
-               "unintegrated",
+               #"integrated",
+               #"unintegrated",
+               "CODON_DELETION",
+               "FRAME_SHIFT",
                "SPLICE_SITE_DONOR")
 
 ## use brewer pal if no need to manually assign colors
@@ -74,7 +78,8 @@ my.colors
 
 # this is to manually order the legend, need to understand better
 x <- factor(df$clinic_or_mutations)
-x = factor(x,levels(x)[c(1,7,5,3,4,8,6,2)])
+#x = factor(x,levels(x)[c(1,7,5,3,4,8,6,2)])
+x = factor(x,levels(x)[c(1,9,7,5,6,10,8,4,3,2)])
 
 ## assign refactored x to the data frame
 df[,"clinic_or_mutations"] = x 
@@ -112,4 +117,4 @@ panel.grid.minor.y=element_blank(),
 panel.background=element_blank()
 ))
 
-ggsave(mut,file="Histology_Comutplot.png",width=10,height=8)
+ggsave(mut,file="/projects/trans_scratch/validations/workspace/szong/Cervical/variant_bwamem/82_patients/Histology_Comutplot.png",width=10,height=8)
